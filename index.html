@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        textarea{
+            height: 500px;
+            width: 500px;
+        }
+        table{
+            width: 60%;
+        }
+        table, tr, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        #btn{
+            width: 100px;
+            height: 50px;
+            background-color: green;
+            color: white;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        #btn:hover{
+            background-color: rgb(57, 181, 57);
+        }
+    </style>
+</head>
+<body>
+    <textarea id="text" placeholder="Enter questions"></textarea>
+    <textarea id="answers", placeholder="Enter answers"></textarea>
+    <button id="btn">Parse</button>
+
+    <div id="table-cont">
+
+    </div>
+    <!-- <table id="table"> -->
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
