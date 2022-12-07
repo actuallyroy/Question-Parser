@@ -7,7 +7,7 @@ const tableCont = document.getElementById("table-cont")
 
 doneBtn.onclick = () => {
 
-    let str = textInput.value.replaceAll("\t", " ")
+    let str = textInput.value.replaceAll("\t", " ") + "\n  "
     let answers = answersInput.value.replaceAll("\n", "\t")
     let lines = str.split("\n")
     let answersArr = answers.split("\t")
@@ -22,9 +22,9 @@ doneBtn.onclick = () => {
             if (Object.keys(tempObj).length > 0) {
                 obj.push(tempObj)
             }
-            // if(!isNaN(line.charAt(0))){
-            //     line = line.substring(line.search(". ")+2)
-            // }
+            if(line.charAt(0) != " " && !isNaN(line.charAt(0))){
+                line = line.substring(line.search(". ")+2)
+            }
             tempObj = {
                 question: line.trim()
             }
@@ -73,19 +73,19 @@ doneBtn.onclick = () => {
             <td>Type</td><td colspan="2">multiple_choice</td>
         </tr>
         <tr>
-            <td>Option</td><td>${question['(A)']}</td><td>${question.answer == 'A'? 'correct': 'incorrect'}</td>
+            <td>Option</td><td>${question['(A)']}</td><td>${question.answer.toUpperCase() == 'A'? 'correct': 'incorrect'}</td>
         </tr>
         <tr>
-        <td>Option</td><td>${question['(B)']}</td><td>${question.answer == 'B'? 'correct': 'incorrect'}</td>
+        <td>Option</td><td>${question['(B)']}</td><td>${question.answer.toUpperCase() == 'B'? 'correct': 'incorrect'}</td>
         </tr>
         <tr>
-        <td>Option</td><td>${question['(C)']}</td><td>${question.answer == 'C'? 'correct': 'incorrect'}</td>
+        <td>Option</td><td>${question['(C)']}</td><td>${question.answer.toUpperCase() == 'C'? 'correct': 'incorrect'}</td>
         </tr>
         <tr>
-        <td>Option</td><td>${question['(D)']}</td><td>${question.answer == 'D'? 'correct': 'incorrect'}</td>
+        <td>Option</td><td>${question['(D)']}</td><td>${question.answer.toUpperCase() == 'D'? 'correct': 'incorrect'}</td>
         </tr>
         <tr>
-        <td>Option</td><td>${question['(E)']}</td><td>${question.answer == 'E'? 'correct': 'incorrect'}</td>
+        <td>Option</td><td>${question['(E)']}</td><td>${question.answer.toUpperCase() == 'E'? 'correct': 'incorrect'}</td>
         </tr>
         <tr>
             <td>Solution</td><td colspan="2">${question[`(${question.answer})`]}</td>
