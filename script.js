@@ -22,6 +22,7 @@ doneBtn.onclick = () => {
             if (Object.keys(tempObj).length > 0) {
                 obj.push(tempObj)
             }
+
             if(line.charAt(0) != " " && !isNaN(line.charAt(0))){
                 line = line.substring(line.search(". ")+2)
             }
@@ -97,9 +98,30 @@ doneBtn.onclick = () => {
         tableCont.innerHTML += "<br>"
         }
     })
-
+    selectElementContents(tableCont)
     // navigator.clipboard.writeText(finalStr)
 }
 
+
+function selectElementContents(el) {
+    var body = document.body, range, sel;
+    if (document.createRange && window.getSelection) {
+        range = document.createRange();
+        sel = window.getSelection();
+        sel.removeAllRanges();
+        try {
+            range.selectNodeContents(el);
+            sel.addRange(range);
+        } catch (e) {
+            range.selectNode(el);
+            sel.addRange(range);
+        }
+    } else if (body.createTextRange) {
+        range = body.createTextRange();
+        range.moveToElementText(el);
+        range.select();
+    }
+    document.execCommand("Copy");
+}
 
 
